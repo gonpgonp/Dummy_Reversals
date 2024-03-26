@@ -16,16 +16,31 @@ The in-game options for reversals are limited in their functionality, hence the 
 
 4. Pause the game and press "-" on your keyboard.
 
-5. Press "=" on your keyboard to toggle whether the cpu will do the reversal action.
+5. Press "=" on your keyboard to cycle between reversal settings: OFF, ONCE, ALWAYS
+
 
 # Notes
 
-This tool works by forcing player 2 to do the specified action which comes with some side-effects and limitations.
+Some moves change pattern part way through the move. For this reason, it is recommended to try to save the reversal action very early into the desired move.
 
-If the dummy is set to perform a grounded move but recovers mid-air, they will still perform the grounded move, leaving them floating.
+This tool works by forcing player 2 to do the specified action upon noticing a neutral frame which comes with some side-effects and limitations.
 
-The same goes vice-versa for setting an airborne move but recovering grounded.
+If the dummy is set to do a grounded move but recovers mid air, they will not do the reversal at all (same vice-versa).
 
-Moves that normally become unperformable will still be performed (e.g. C-Vaki can do pit set even if one is already set).
+Moves that normally become unperformable will still be performed (e.g. C-Vaki can do pit set even if one is already set, metered moves can be done without meter).
 
-The dummy is not actually inputting anything, so it can not do charge moves or variations other than the default version of a move.
+The dummy is not actually inputting anything, so it will not do charge moves or variations other than the default version of a move.
+
+There is a workaround for this:
+
+1. Hit the dummy and try to pause on the first frame of the reversal.
+
+2. Once you successfully pause on the right frame, start a dummy recording and record the followups you want.
+
+3. Set the Dummy to Recover
+
+4. The dummy will now do both the reversal move, as well as your recorded inputs
+
+Be aware of a bug where if an input is held for the first frame of a recording, the dummy will repeatedly do that input even while not in playback.
+
+This makes doing this method for charged moves very annoying.

@@ -22,17 +22,27 @@ while 1:
     
     if keyboard.is_pressed("="):
         time.sleep(0.1)
-        cfg.rev_setting = not cfg.rev_setting
+        cfg.rev_setting = (cfg.rev_setting + 1)%3
     
     if keyboard.is_pressed("-"):
         time.sleep(0.1)
         cfg.rev_pat = sub.r_mem(0x155C3C, cfg.p2_pat_buf)
+        cfg.rev_stance = sub.r_mem(0x155F47, cfg.p2_rev_stance_buf)
     
     cfg.timer = sub.r_mem(0x162A40, cfg.timer_buf)
     cfg.p2_mot = sub.r_mem(0x1581CC, cfg.p2_mot_buf)
+    cfg.p2_no_combo = sub.r_mem(0x155C90, cfg.p2_no_combo_buf)
+    cfg.p2_stance = sub.r_mem(0x155F47, cfg.p2_stance_buf)
     
-    if (cfg.p2_mot == 0 and cfg.p2_mot != cfg.last_mot and cfg.rev_setting and cfg.timer > 1):
-        sub.w_mem(0x155F38, pack('h', cfg.rev_pat))
+    if cfg.p2_no_combo == 0 or cfg.rev_setting == 2:
+        cfg.do_reversal = True
+    
+    if (cfg.p2_mot == 0 and cfg.p2_mot != cfg.last_mot and cfg.rev_setting > 0
+        and cfg.timer > 1 and cfg.rev_stance == cfg.p2_stance):
+        if cfg.do_reversal:
+            sub.w_mem(0x155F38, pack('h', cfg.rev_pat))
+            if cfg.rev_setting == 1:
+                cfg.do_reversal = False
     
     cfg.last_mot = cfg.p2_mot
     

@@ -120,7 +120,7 @@ def view():
 
     state_str = '\x1b[1;1H' + '\x1b[?25l'
     
-    reversal_setting_strings = ["OFF", "ON"]
+    reversal_setting_strings = ["OFF", "ONCE", "ALWAYS"]
 
     state_str += f'[-] Reversal Action: {cfg.rev_pat}' + END
     state_str += f'[=] Reversal Setting: {reversal_setting_strings[cfg.rev_setting]}' + END
