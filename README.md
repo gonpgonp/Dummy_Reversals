@@ -23,6 +23,8 @@ The in-game options for reversals are limited in their functionality, hence the 
 
 Some moves change pattern part way through the move. For this reason, it is recommended to try to save the reversal action very early into the desired move.
 
+Moves that change whether they are airborne or not midway also need to be saved at the beginning, before they have transitioned.
+
 This tool works by forcing player 2 to do the specified action upon noticing a neutral frame which comes with some side-effects and limitations.
 
 If the dummy is set to do a grounded move but recovers mid air, they will not do the reversal at all (same vice-versa).
